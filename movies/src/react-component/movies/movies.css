@@ -1,0 +1,12 @@
+.container_main {
+  width: 100%;
+}
+.container_main h1 {
+  margin: 20px 5px;
+  text-align: center;
+}
+.container_movies {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
