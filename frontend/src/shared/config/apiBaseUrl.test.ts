@@ -21,6 +21,9 @@ describe("resolveApiBaseUrl", () => {
     "https://api.example.test?x=1",
     "https://api.example.test#fragment",
     "not a url",
+    "https://a;script-src*",
+    "https://a'b.test",
+    "https://exa$mple.test",
   ])("rejects %s", (value) => {
     expect(() => resolveApiBaseUrl(value)).toThrow();
   });

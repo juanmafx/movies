@@ -9,7 +9,7 @@ This project follows [Semantic Versioning](https://semver.org/) and the [Keep a 
 - Show detail URLs moved from `/:id` to `/shows/:id`.
 - The configuration variable `REACT_APP_URL_API` is now `VITE_TVMAZE_API_URL`.
 - The application moved from `movies/` to `frontend/`.
-- Node.js 24.15 or newer is required.
+- Node.js `^24.15.0` or `>=26.0.0` is required.
 
 ### Added
 
@@ -17,7 +17,7 @@ This project follows [Semantic Versioning](https://semver.org/) and the [Keep a 
 - Loading, empty, error and retry states, plus a not-found route.
 - TVmaze attribution in the footer.
 - Automated tests, a committed test report and a GitHub Actions workflow.
-- Optional database schema, architecture guide, security policy and audit.
+- Optional database schema, architecture guide, security policy, audit and third-party notices.
 
 ### Changed
 
@@ -35,6 +35,7 @@ This project follows [Semantic Versioning](https://semver.org/) and the [Keep a 
 
 - Resolved all 217 `npm audit` advisories in the original lockfile.
 - Added a Content Security Policy, response validation and a hardened request policy.
+- Restricted poster URLs to TVmaze's image host, limited responses to 2 MB and rejected API hostnames that could alter the generated policy.
 
 ### Removed
 

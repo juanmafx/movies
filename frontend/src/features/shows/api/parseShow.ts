@@ -1,3 +1,4 @@
+import { IMAGE_ORIGIN } from "../../../shared/config/imageOrigin";
 import { ApiError } from "../../../shared/http/ApiError";
 import type { Show } from "../domain/show";
 
@@ -9,13 +10,13 @@ const isObject = (value: unknown): value is JsonObject =>
 const optionalString = (value: unknown): string | null =>
   typeof value === "string" && value.length > 0 ? value : null;
 
-function httpsUrl(value: unknown): string | null {
+function imageUrl(value: unknown): string | null {
   if (typeof value !== "string") {
     return null;
   }
   try {
     const url = new URL(value);
-    return url.protocol === "https:" ? url.href : null;
+    return url.origin === IMAGE_ORIGIN && !url.username && !url.password ? url.href : null;
   } catch {
     return null;
   }
@@ -38,8 +39,8 @@ function toShow(value: unknown): Show | null {
     id: value.id as number,
     name,
     summaryHtml: optionalString(value.summary),
-    imageMediumUrl: httpsUrl(image.medium),
-    imageOriginalUrl: httpsUrl(image.original),
+    imageMediumUrl: imageUrl(image.medium),
+    imageOriginalUrl: imageUrl(image.original),
     language: optionalString(value.language),
     genres: Array.isArray(value.genres)
       ? value.genres.filter((genre): genre is string => typeof genre === "string")

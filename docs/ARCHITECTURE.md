@@ -19,7 +19,7 @@ frontend/src/
 |       `-- pages/               ShowListPage, ShowDetailPage
 |-- shared/
 |   |-- components/              StatusMessage
-|   |-- config/                  API base URL validation
+|   |-- config/                  API base URL validation, image origin
 |   |-- hooks/                   useAsyncResource
 |   |-- http/                    fetchJson, ApiError
 |   `-- richText/                Allowlist parser and renderer
@@ -34,8 +34,8 @@ Dependencies point inward: `app` uses `features`, `features` use `shared`, and `
 1. A page derives its input from the URL and memoizes a loader.
 2. `useAsyncResource` runs the loader with an `AbortSignal`, ignores stale results and exposes `loading`, `success` or `error`.
 3. `showsClient` builds the URL with encoded parameters and calls `fetchJson`.
-4. `fetchJson` applies the timeout and request policy, and maps failures to typed `ApiError` kinds.
-5. `parseShow` converts unknown JSON into a `Show`, dropping invalid entries.
+4. `fetchJson` applies the timeout, request policy and 2 MB response limit, and maps failures to typed `ApiError` kinds.
+5. `parseShow` converts unknown JSON into a `Show`, dropping invalid entries and any poster URL outside `https://static.tvmaze.com`.
 6. `RichText` renders the summary as React elements.
 
 ## Key decisions
@@ -48,6 +48,7 @@ Dependencies point inward: `app` uses `features`, `features` use `shared`, and `
 | URL as search state | Links are shareable and browser navigation works without a store |
 | Fetch one show on the detail page | The original refetched a whole search and failed for shows outside it |
 | CSP injected at build time | Vite's development server needs inline scripts that production must not allow |
+| One image origin shared by the parser and the CSP | A poster the policy would block falls back to the placeholder instead of a broken image |
 
 ## Recommended production deployment
 

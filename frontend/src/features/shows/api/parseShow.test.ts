@@ -28,12 +28,20 @@ describe("parseShow", () => {
     });
   });
 
-  it.each(["javascript:alert(1)", "data:image/svg+xml,x", "http://example.test/a.jpg", "::", 5])(
-    "rejects the unsafe image URL %s",
-    (medium) => {
-      expect(parseShow({ ...showPayload, image: { medium } }).imageMediumUrl).toBeNull();
-    },
-  );
+  it.each([
+    "javascript:alert(1)",
+    "data:image/svg+xml,x",
+    "http://example.test/a.jpg",
+    "::",
+    5,
+    "http://static.tvmaze.com/a.jpg",
+    "https://tracker.example.test/pixel.png",
+    "https://static.tvmaze.com.example.test/a.jpg",
+    "https://user@static.tvmaze.com/a.jpg",
+    "https://static.tvmaze.com:8443/a.jpg",
+  ])("rejects the unsafe image URL %s", (medium) => {
+    expect(parseShow({ ...showPayload, image: { medium } }).imageMediumUrl).toBeNull();
+  });
 
   it("discards out-of-range ratings and malformed dates", () => {
     const show = parseShow({ ...showPayload, rating: { average: 99 }, premiered: "soon" });

@@ -1,6 +1,7 @@
 import { ApiError } from "./ApiError";
 
 export const REQUEST_TIMEOUT_MS = 10_000;
+export const MAX_RESPONSE_BYTES = 2_000_000;
 
 export async function fetchJson(
   url: string,
@@ -42,11 +43,37 @@ export async function fetchJson(
 }
 
 async function readJson(response: Response): Promise<unknown> {
-  const body = await response.text();
+  const body = await readBoundedText(response);
   try {
     return JSON.parse(body);
   } catch {
     throw new ApiError("invalid-response");
+  }
+}
+
+async function readBoundedText(response: Response): Promise<string> {
+  if (Number(response.headers.get("content-length")) > MAX_RESPONSE_BYTES) {
+    throw new ApiError("invalid-response");
+  }
+  const reader = response.body?.getReader();
+  if (!reader) {
+    return "";
+  }
+
+  const decoder = new TextDecoder();
+  let receivedBytes = 0;
+  let text = "";
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) {
+      return text + decoder.decode();
+    }
+    receivedBytes += value.byteLength;
+    if (receivedBytes > MAX_RESPONSE_BYTES) {
+      await reader.cancel().catch(() => undefined);
+      throw new ApiError("invalid-response");
+    }
+    text += decoder.decode(value, { stream: true });
   }
 }
 

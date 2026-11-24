@@ -68,6 +68,14 @@ describe("RichText", () => {
     expect(current).toEqual({ type: "text", text: "deep" });
   });
 
+  it("keeps dropped content hidden below the depth limit", () => {
+    const depth = MAX_RICH_TEXT_DEPTH + 10;
+    const element = renderMarkup(
+      `${"<div>".repeat(depth)}visible<script>hiddenScript()</script><style>.hidden{}</style>${"</div>".repeat(depth)}`,
+    );
+    expect(element?.textContent).toBe("visible");
+  });
+
   it("truncates oversized input", () => {
     const [node] = parseRichText("a".repeat(MAX_RICH_TEXT_LENGTH + 500));
     expect(node).toEqual({ type: "text", text: "a".repeat(MAX_RICH_TEXT_LENGTH) });

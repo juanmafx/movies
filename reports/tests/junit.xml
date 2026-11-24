@@ -1,195 +1,221 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="87" failures="0" errors="0" time="2.164723381">
-    <testsuite name="src/app/App.test.tsx" timestamp="2026-11-24T02:03:50.244Z" tests="11" failures="0" errors="0" skipped="0" time="1.152794718">
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; loads the default search and renders cards" time="0.743502275">
+<testsuites name="vitest tests" tests="100" failures="0" errors="0" time="0.894682353">
+    <testsuite name="src/app/App.test.tsx" timestamp="2026-11-24T03:09:47.623Z" tests="11" failures="0" errors="0" skipped="0" time="0.509100443">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; loads the default search and renders cards" time="0.242994414">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; renders a show without image or summary" time="0.025543399">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; renders a show without image or summary" time="0.017693949">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; does not execute markup from the API" time="0.029599498">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; does not execute markup from the API" time="0.021999698">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; searches and updates the request" time="0.166360985">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; searches and updates the request" time="0.103727137">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; shows an error and recovers on retry" time="0.057891847">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; shows an error and recovers on retry" time="0.038844328">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show list &gt; aborts the in-flight request on unmount" time="0.013197247">
+        <testcase classname="src/app/App.test.tsx" name="show list &gt; aborts the in-flight request on unmount" time="0.008716484">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show detail &gt; loads one show and links back to the search" time="0.032546207">
+        <testcase classname="src/app/App.test.tsx" name="show detail &gt; loads one show and links back to the search" time="0.025686284">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show detail &gt; does not call the API for an invalid id" time="0.019542336">
+        <testcase classname="src/app/App.test.tsx" name="show detail &gt; does not call the API for an invalid id" time="0.015854371">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="show detail &gt; offers retry for transient failures" time="0.031523367">
+        <testcase classname="src/app/App.test.tsx" name="show detail &gt; offers retry for transient failures" time="0.013485913">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="application shell &gt; renders a not-found page for unknown routes" time="0.009293803">
+        <testcase classname="src/app/App.test.tsx" name="application shell &gt; renders a not-found page for unknown routes" time="0.006961049">
         </testcase>
-        <testcase classname="src/app/App.test.tsx" name="application shell &gt; credits TVmaze with safe external links" time="0.014848457">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/features/shows/api/parseShow.test.ts" timestamp="2026-11-24T02:03:50.253Z" tests="16" failures="0" errors="0" skipped="0" time="0.030017555">
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; maps the API payload to the domain model" time="0.011696801">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; tolerates the null fields that crashed the original app" time="0.00376885">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL javascript:alert(1)" time="0.000802556">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL data:image/svg+xml,x" time="0.000451135">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL http://example.test/a.jpg" time="0.000437903">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL ::" time="0.000453975">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL 5" time="0.000377939">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; discards out-of-range ratings and malformed dates" time="0.000580069">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects null" time="0.001744378">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects undefined" time="0.000478945">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects &quot;x&quot;" time="0.000416152">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;a&quot;}" time="0.000443207">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:-1,&quot;name&quot;:&quot;a&quot;}" time="0.000399888">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:1}" time="0.000377705">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShowSearchResults &gt; unwraps results, drops invalid entries and removes duplicates" time="0.000861449">
-        </testcase>
-        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShowSearchResults &gt; rejects non-array payloads" time="0.000542658">
+        <testcase classname="src/app/App.test.tsx" name="application shell &gt; credits TVmaze with safe external links" time="0.009799216">
         </testcase>
     </testsuite>
-    <testsuite name="src/features/shows/api/showsClient.test.ts" timestamp="2026-11-24T02:03:50.264Z" tests="2" failures="0" errors="0" skipped="0" time="0.076027985">
-        <testcase classname="src/features/shows/api/showsClient.test.ts" name="createShowsClient &gt; encodes search queries" time="0.060442069">
+    <testsuite name="src/features/shows/api/parseShow.test.ts" timestamp="2026-11-24T03:09:47.627Z" tests="21" failures="0" errors="0" skipped="0" time="0.019528891">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; maps the API payload to the domain model" time="0.005882901">
         </testcase>
-        <testcase classname="src/features/shows/api/showsClient.test.ts" name="createShowsClient &gt; requests a show by id" time="0.006194218">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; tolerates the null fields that crashed the original app" time="0.002071526">
         </testcase>
-    </testsuite>
-    <testsuite name="src/features/shows/domain/show.test.ts" timestamp="2026-11-24T02:03:50.266Z" tests="15" failures="0" errors="0" skipped="0" time="0.026697465">
-        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for null" time="0.007441251">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL javascript:alert(1)" time="0.000570918">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for &quot;&quot;" time="0.000906988">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL data:image/svg+xml,x" time="0.000574607">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for &quot;   &quot;" time="0.000628807">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL http://example.test/a.jpg" time="0.000464701">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; collapses whitespace" time="0.001222516">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL ::" time="0.000243691">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; caps the length" time="0.003403568">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL 5" time="0.000190301">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; accepts positive integers" time="0.00093571">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL http://static.tvmaze.com/a.jpg" time="0.000188659">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects undefined" time="0.000540945">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL https://tracker.example.test/pixel.png" time="0.001242623">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;&quot;" time="0.000418977">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL https://static.tvmaze.com.example.test/a.jpg" time="0.000320557">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;0&quot;" time="0.001083532">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL https://user@static.tvmaze.com/a.jpg" time="0.000310307">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;-1&quot;" time="0.000359417">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects the unsafe image URL https://static.tvmaze.com:8443/a.jpg" time="0.000173295">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1.5&quot;" time="0.000326558">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; discards out-of-range ratings and malformed dates" time="0.000271097">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1e3&quot;" time="0.001449983">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects null" time="0.000933528">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;abc&quot;" time="0.000333007">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects undefined" time="0.000246609">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1/../2&quot;" time="0.00047632">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects &quot;x&quot;" time="0.00019827">
         </testcase>
-        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;9999999999999999&quot;" time="0.000288118">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;a&quot;}" time="0.000181363">
         </testcase>
-    </testsuite>
-    <testsuite name="src/shared/config/apiBaseUrl.test.ts" timestamp="2026-11-24T02:03:50.271Z" tests="10" failures="0" errors="0" skipped="0" time="0.025515741">
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for undefined" time="0.00742722">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:-1,&quot;name&quot;:&quot;a&quot;}" time="0.000178533">
         </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for &quot;&quot;" time="0.000813455">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShow &gt; rejects {&quot;id&quot;:1}" time="0.000328743">
         </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for &quot;   &quot;" time="0.000555843">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShowSearchResults &gt; unwraps results, drops invalid entries and removes duplicates" time="0.000532236">
         </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; strips trailing slashes" time="0.00127145">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; allows plain HTTP on loopback only" time="0.00346306">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects javascript:alert(1)" time="0.00094968">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://user:pass@api.example.test" time="0.000558674">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://api.example.test?x=1" time="0.00065364">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://api.example.test#fragment" time="0.002445963">
-        </testcase>
-        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects not a url" time="0.000619392">
+        <testcase classname="src/features/shows/api/parseShow.test.ts" name="parseShowSearchResults &gt; rejects non-array payloads" time="0.000323415">
         </testcase>
     </testsuite>
-    <testsuite name="src/shared/http/fetchJson.test.ts" timestamp="2026-11-24T02:03:50.275Z" tests="9" failures="0" errors="0" skipped="0" time="0.068962367">
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; returns parsed JSON and sends a hardened request" time="0.033524824">
+    <testsuite name="src/features/shows/api/showsClient.test.ts" timestamp="2026-11-24T03:09:47.632Z" tests="2" failures="0" errors="0" skipped="0" time="0.023596191">
+        <testcase classname="src/features/shows/api/showsClient.test.ts" name="createShowsClient &gt; encodes search queries" time="0.017344121">
         </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 404 to not-found" time="0.00346956">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 429 to rate-limited" time="0.001983543">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 500 to http" time="0.001645402">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports malformed JSON" time="0.002629175">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports network failures" time="0.001354985">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports timeouts" time="0.00774552">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; propagates caller aborts as AbortError" time="0.002396393">
-        </testcase>
-        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; never exposes unknown error details to the UI" time="0.00126174">
+        <testcase classname="src/features/shows/api/showsClient.test.ts" name="createShowsClient &gt; requests a show by id" time="0.002719148">
         </testcase>
     </testsuite>
-    <testsuite name="src/shared/richText/RichText.test.tsx" timestamp="2026-11-24T02:03:50.278Z" tests="14" failures="0" errors="0" skipped="0" time="0.501037684">
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; keeps allowed formatting" time="0.189478852">
+    <testsuite name="src/features/shows/domain/show.test.ts" timestamp="2026-11-24T03:09:47.633Z" tests="15" failures="0" errors="0" skipped="0" time="0.014818603">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for null" time="0.004155259">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;script&gt;window.compromised=1&lt;/script&gt;" time="0.032298688">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for &quot;&quot;" time="0.000482343">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;img src=x onerror=window.compromised=1&gt;" time="0.02543311">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; uses the default for &quot;   &quot;" time="0.000334859">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;svg onload=window.compromised=1&gt;&lt;/svg&gt;" time="0.025901818">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; collapses whitespace" time="0.000608781">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;iframe src=&apos;javascript:window.compromised=1&apos;&gt;&lt;/iframe&gt;" time="0.019033075">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="normalizeSearchQuery &gt; caps the length" time="0.001803966">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;math&gt;&lt;mtext&gt;&lt;style&gt;&lt;img src=x onerror=window.compromised=1&gt;&lt;/style&gt;&lt;/mtext&gt;&lt;/math&gt;" time="0.011446106">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; accepts positive integers" time="0.001298924">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;template&gt;&lt;img src=x onerror=window.compromised=1&gt;&lt;/template&gt;" time="0.014841313">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects undefined" time="0.000337843">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;object data=&apos;javascript:window.compromised=1&apos;&gt;&lt;/object&gt;" time="0.015755466">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;&quot;" time="0.000200217">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; strips every attribute from allowed tags" time="0.033775134">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;0&quot;" time="0.000843428">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; unwraps links and keeps their text" time="0.014015561">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;-1&quot;" time="0.000181116">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; renders escaped markup as text" time="0.027232905">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1.5&quot;" time="0.000165392">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; handles empty input" time="0.011647349">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1e3&quot;" time="0.000144065">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; flattens markup nested beyond the depth limit" time="0.022470124">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;abc&quot;" time="0.000142548">
         </testcase>
-        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; truncates oversized input" time="0.036398408">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;1/../2&quot;" time="0.000141243">
         </testcase>
-    </testsuite>
-    <testsuite name="tests/contentSecurityPolicy.test.ts" timestamp="2026-11-24T02:03:50.283Z" tests="2" failures="0" errors="0" skipped="0" time="0.025365572">
-        <testcase classname="tests/contentSecurityPolicy.test.ts" name="buildContentSecurityPolicy &gt; denies by default and scopes network access" time="0.011002402">
-        </testcase>
-        <testcase classname="tests/contentSecurityPolicy.test.ts" name="buildContentSecurityPolicy &gt; never allows inline or evaluated code" time="0.00105086">
+        <testcase classname="src/features/shows/domain/show.test.ts" name="parseShowId &gt; rejects &quot;9999999999999999&quot;" time="0.00067896">
         </testcase>
     </testsuite>
-    <testsuite name="tests/schema.test.ts" timestamp="2026-11-24T02:03:50.283Z" tests="8" failures="0" errors="0" skipped="0" time="0.258304294">
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; creates every table and is idempotent" time="0.141981677">
+    <testsuite name="src/shared/config/apiBaseUrl.test.ts" timestamp="2026-11-24T03:09:47.636Z" tests="13" failures="0" errors="0" skipped="0" time="0.017067684">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for undefined" time="0.004481624">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a blank name" time="0.014839403">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for &quot;&quot;" time="0.000548053">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a non-positive id" time="0.014702773">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; falls back to the default for &quot;   &quot;" time="0.000385483">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects an out-of-range rating" time="0.017377678">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; strips trailing slashes" time="0.000705487">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a non-HTTPS image" time="0.016561328">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; allows plain HTTP on loopback only" time="0.002132388">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; enforces foreign keys" time="0.009981283">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects javascript:alert(1)" time="0.000549727">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; enforces a unique rank per query" time="0.011828743">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://user:pass@api.example.test" time="0.000348762">
         </testcase>
-        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; cascades deletes to dependent rows" time="0.015654026">
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://api.example.test?x=1" time="0.000349907">
+        </testcase>
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://api.example.test#fragment" time="0.001389526">
+        </testcase>
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects not a url" time="0.000419316">
+        </testcase>
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://a;script-src*" time="0.000631786">
+        </testcase>
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://a&apos;b.test" time="0.000341808">
+        </testcase>
+        <testcase classname="src/shared/config/apiBaseUrl.test.ts" name="resolveApiBaseUrl &gt; rejects https://exa$mple.test" time="0.001401323">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/shared/http/fetchJson.test.ts" timestamp="2026-11-24T03:09:47.638Z" tests="13" failures="0" errors="0" skipped="0" time="0.049328314">
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; returns parsed JSON and sends a hardened request" time="0.016610146">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 404 to not-found" time="0.002611067">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 429 to rate-limited" time="0.001276507">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; maps HTTP 500 to http" time="0.000993482">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports malformed JSON" time="0.001438024">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; rejects a declared body over the size limit" time="0.001295427">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; stops reading a streamed body over the size limit" time="0.003930514">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; decodes multi-byte characters split across chunks" time="0.001506249">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports an empty body as invalid" time="0.002087169">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports network failures" time="0.001069549">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; reports timeouts" time="0.009562719">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; propagates caller aborts as AbortError" time="0.000998304">
+        </testcase>
+        <testcase classname="src/shared/http/fetchJson.test.ts" name="fetchJson &gt; never exposes unknown error details to the UI" time="0.000660195">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/shared/richText/RichText.test.tsx" timestamp="2026-11-24T03:09:47.640Z" tests="15" failures="0" errors="0" skipped="0" time="0.168336705">
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; keeps allowed formatting" time="0.059618279">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;script&gt;window.compromised=1&lt;/script&gt;" time="0.016587439">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;img src=x onerror=window.compromised=1&gt;" time="0.008836773">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;svg onload=window.compromised=1&gt;&lt;/svg&gt;" time="0.005066281">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;iframe src=&apos;javascript:window.compromised=1&apos;&gt;&lt;/iframe&gt;" time="0.009709045">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;math&gt;&lt;mtext&gt;&lt;style&gt;&lt;img src=x onerror=window.compromised=1&gt;&lt;/style&gt;&lt;/mtext&gt;&lt;/math&gt;" time="0.005389375">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;template&gt;&lt;img src=x onerror=window.compromised=1&gt;&lt;/template&gt;" time="0.005728886">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; neutralizes &lt;object data=&apos;javascript:window.compromised=1&apos;&gt;&lt;/object&gt;" time="0.003441144">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; strips every attribute from allowed tags" time="0.00781003">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; unwraps links and keeps their text" time="0.004538139">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; renders escaped markup as text" time="0.009953136">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; handles empty input" time="0.001290389">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; flattens markup nested beyond the depth limit" time="0.005353666">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; keeps dropped content hidden below the depth limit" time="0.007098903">
+        </testcase>
+        <testcase classname="src/shared/richText/RichText.test.tsx" name="RichText &gt; truncates oversized input" time="0.014562145">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/contentSecurityPolicy.test.ts" timestamp="2026-11-24T03:09:47.643Z" tests="2" failures="0" errors="0" skipped="0" time="0.006219517">
+        <testcase classname="tests/contentSecurityPolicy.test.ts" name="buildContentSecurityPolicy &gt; denies by default and scopes network access" time="0.003134696">
+        </testcase>
+        <testcase classname="tests/contentSecurityPolicy.test.ts" name="buildContentSecurityPolicy &gt; never allows inline or evaluated code" time="0.000506631">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/schema.test.ts" timestamp="2026-11-24T03:09:47.644Z" tests="8" failures="0" errors="0" skipped="0" time="0.086686005">
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; creates every table and is idempotent" time="0.037714456">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a blank name" time="0.007225263">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a non-positive id" time="0.005811177">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects an out-of-range rating" time="0.004607002">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; rejects a non-HTTPS image" time="0.004565932">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; enforces foreign keys" time="0.004962178">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; enforces a unique rank per query" time="0.007152677">
+        </testcase>
+        <testcase classname="tests/schema.test.ts" name="db/schema.sql &gt; cascades deletes to dependent rows" time="0.010967421">
         </testcase>
     </testsuite>
 </testsuites>

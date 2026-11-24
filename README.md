@@ -1,6 +1,6 @@
 # Movies
 
-A small, security-focused React single-page application for searching TV shows and reading their details, powered by the public [TVmaze API](https://www.tvmaze.com/api).
+A small React single-page application for searching TV shows and reading their details, powered by the public [TVmaze API](https://www.tvmaze.com/api).
 
 > **Project history:** originally created in 2020, modernized in 2026.
 
@@ -10,7 +10,7 @@ Movies answers one question quickly: *which shows match this title, and what are
 
 ## Why this project exists
 
-It began as a React exercise in consuming a REST API. The 2026 modernization keeps that small scope and applies production engineering practice to it: strict typing, validation at the network boundary, safe rendering of third-party HTML, automated tests and a least-privilege CI pipeline.
+It began in 2020 as a Create React App project that listed shows from the TVmaze REST API. The 2026 modernization keeps that small scope and adds strict typing, validation at the network boundary, safe rendering of third-party HTML, automated tests and a least-privilege CI workflow.
 
 ## What it does
 
@@ -20,7 +20,7 @@ It began as a React exercise in consuming a REST API. The 2026 modernization kee
 - Handles loading, empty, not-found, rate-limited, timeout, network and malformed-response states, with retry where it can help.
 - Cancels in-flight requests when the query changes or the page unmounts.
 
-It has no accounts, no contact form, no backend and no database, and it stores no user data.
+It has no accounts, no contact form, no backend and no database, and it stores no user data. Search terms and show requests go directly from the browser to TVmaze, and posters load from TVmaze's image host, so those services receive the visitor's IP address.
 
 ## Architecture
 
@@ -50,7 +50,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
 
 ## Quick start
 
-Requires Node.js 24.15 or newer (`frontend/.nvmrc` pins the version used for development).
+Requires Node.js `^24.15.0` or `>=26.0.0`; the test tooling does not support Node.js 25. Development and testing used 24.22.0, pinned in `frontend/.nvmrc`.
 
 ```bash
 cd frontend
@@ -84,7 +84,7 @@ Copy `frontend/.env.example` to `frontend/.env` to override the default.
 
 | Variable | Default | Rules |
 | --- | --- | --- |
-| `VITE_TVMAZE_API_URL` | `https://api.tvmaze.com` | HTTPS only (HTTP is accepted for loopback hosts); no credentials, query or fragment |
+| `VITE_TVMAZE_API_URL` | `https://api.tvmaze.com` | HTTPS only (HTTP is accepted for loopback hosts); plain hostname; no credentials, query or fragment |
 
 The value is compiled into the public bundle, so never put a secret in it. An invalid value fails the build.
 
@@ -112,13 +112,13 @@ Tests stub the network and do not call TVmaze. The latest committed results are 
 
 - Third-party summaries are parsed inertly and rebuilt from an allowlist. The app has no `innerHTML` or `dangerouslySetInnerHTML`, and lint rules forbid them.
 - Production builds ship a Content Security Policy without inline or evaluated scripts.
-- Requests omit credentials and referrers, reject redirects and time out after 10 seconds.
-- API responses are validated before use; only HTTPS image URLs are accepted.
+- Requests omit credentials and referrers, reject redirects, time out after 10 seconds and stop reading responses larger than 2 MB.
+- API responses are validated before use; poster URLs must be HTTPS on TVmaze's image host, `static.tvmaze.com`.
 
 See [SECURITY.md](SECURITY.md) and [docs/SECURITY_AUDIT.md](docs/SECURITY_AUDIT.md).
 
 ## Credits and licensing
 
 - Show data comes from [TVmaze](https://www.tvmaze.com/api) under [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/). The app displays this attribution in its footer, and any reuse of the data must follow those terms.
-- The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) (MIT). `frontend/public/favicon.ico` is the unchanged icon from its template.
+- The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) (MIT). `frontend/public/favicon.ico` is the unchanged icon from its template; the license text is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - This repository does not currently include a license for its own code.

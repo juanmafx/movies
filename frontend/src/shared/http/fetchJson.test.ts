@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { jsonResponse } from "../../test/fixtures";
 import { ApiError, describeError } from "./ApiError";
-import { fetchJson } from "./fetchJson";
+import { fetchJson, MAX_RESPONSE_BYTES } from "./fetchJson";
 
 const signal = () => new AbortController().signal;
 
@@ -41,6 +41,50 @@ describe("fetchJson", () => {
 
   it("reports malformed JSON", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("<html>")));
+    await expect(fetchJson("https://x.test", signal())).rejects.toMatchObject({
+      kind: "invalid-response",
+    });
+  });
+
+  it("rejects a declared body over the size limit", async () => {
+    const response = new Response("{}", {
+      headers: { "Content-Length": String(MAX_RESPONSE_BYTES + 1) },
+    });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(response));
+    await expect(fetchJson("https://x.test", signal())).rejects.toMatchObject({
+      kind: "invalid-response",
+    });
+  });
+
+  it("stops reading a streamed body over the size limit", async () => {
+    const cancel = vi.fn();
+    const body = new ReadableStream<Uint8Array>({
+      pull: (controller) => controller.enqueue(new Uint8Array(MAX_RESPONSE_BYTES / 2 + 1)),
+      cancel,
+    });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(body)));
+    await expect(fetchJson("https://x.test", signal())).rejects.toMatchObject({
+      kind: "invalid-response",
+    });
+    expect(cancel).toHaveBeenCalledOnce();
+  });
+
+  it("decodes multi-byte characters split across chunks", async () => {
+    const bytes = new TextEncoder().encode(JSON.stringify({ name: "caf\u00e9" }));
+    const splitAt = bytes.indexOf(0xc3) + 1;
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(bytes.slice(0, splitAt));
+        controller.enqueue(bytes.slice(splitAt));
+        controller.close();
+      },
+    });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(body)));
+    await expect(fetchJson("https://x.test", signal())).resolves.toEqual({ name: "caf\u00e9" });
+  });
+
+  it("reports an empty body as invalid", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null)));
     await expect(fetchJson("https://x.test", signal())).rejects.toMatchObject({
       kind: "invalid-response",
     });

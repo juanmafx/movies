@@ -52,11 +52,34 @@ function convertNode(node: Node, depth: number): RichTextNode[] {
     return [];
   }
   if (depth >= MAX_RICH_TEXT_DEPTH) {
-    return node.textContent ? [{ type: "text", text: node.textContent }] : [];
+    const text = visibleText(node as Element);
+    return text ? [{ type: "text", text }] : [];
   }
 
   const children = convertChildren(node, depth + 1);
   return ALLOWED_TAGS.has(tag)
     ? [{ type: "element", tag: tag as RichTextTag, children: tag === "br" ? [] : children }]
     : children;
+}
+
+function visibleText(root: Element): string {
+  const walker = root.ownerDocument.createTreeWalker(
+    root,
+    NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          return NodeFilter.FILTER_ACCEPT;
+        }
+        return DROPPED_TAGS.has((node as Element).localName)
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_SKIP;
+      },
+    },
+  );
+  let text = "";
+  while (walker.nextNode()) {
+    text += walker.currentNode.textContent ?? "";
+  }
+  return text;
 }

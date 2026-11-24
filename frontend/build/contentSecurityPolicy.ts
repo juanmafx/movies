@@ -1,6 +1,5 @@
 import type { Plugin } from "vite";
-
-const IMAGE_ORIGIN = "https://static.tvmaze.com";
+import { IMAGE_ORIGIN } from "../src/shared/config/imageOrigin.ts";
 
 export function buildContentSecurityPolicy(apiOrigin: string): string {
   return [

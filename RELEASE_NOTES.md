@@ -1,6 +1,6 @@
 # Release Notes: 1.0.0
 
-Version 1.0.0 is a full modernization of the 2020 project. It keeps the original idea, browsing TV shows from TVmaze, on a current and hardened stack. This release has been prepared but not yet tagged or published.
+Version 1.0.0 is a full modernization of the 2020 project. It keeps the original idea, browsing TV shows from TVmaze, on a current and hardened stack.
 
 ## Highlights
 
@@ -11,7 +11,7 @@ Version 1.0.0 is a full modernization of the 2020 project. It keeps the original
 
 ## Upgrading
 
-1. Run the application from `frontend/` with Node.js 24.15 or newer.
+1. Run the application from `frontend/` with Node.js `^24.15.0` or `>=26.0.0`.
 2. Rename `REACT_APP_URL_API` to `VITE_TVMAZE_API_URL`.
 3. Update saved links from `/<id>` to `/shows/<id>`.
 4. Configure your host to rewrite unknown paths to `index.html`.
