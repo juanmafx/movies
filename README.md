@@ -1,4 +1,4 @@
-# Movies
+# tv-show-search
 
 A small React single-page application for searching TV shows and reading their details, powered by the public [TVmaze API](https://www.tvmaze.com/api).
 
